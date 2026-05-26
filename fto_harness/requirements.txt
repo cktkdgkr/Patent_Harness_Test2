@@ -1,0 +1,34 @@
+# FTO Patent Review Harness - Dependencies
+
+# Anthropic API for multi-agent orchestration
+anthropic>=0.39.0
+
+# Biopython for sequence parsing, BLAST interfaces
+biopython>=1.83
+
+# PDF parsing
+pdfplumber>=0.11.0
+PyMuPDF>=1.24.0
+
+# Patent XML (ST.26) parsing
+lxml>=5.1.0
+
+# HTTP requests for patent DB / sequence DB fetching
+requests>=2.31.0
+httpx>=0.27.0
+
+# Configuration
+pyyaml>=6.0.1
+
+# CLI
+click>=8.1.7
+
+# Markdown report generation
+jinja2>=3.1.3
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+
+# Optional: MMseqs2 (installed separately via conda/binary)
+# Optional: NCBI BLAST+ (installed separately, blastp must be on PATH)

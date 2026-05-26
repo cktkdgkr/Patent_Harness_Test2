@@ -1,0 +1,61 @@
+# FTO Harness Configuration
+# All thresholds default to the RECALL-FIRST direction:
+# cast a wide net, flag more rather than fewer.
+
+llm:
+  model: "claude-sonnet-4-6"
+  max_tokens: 4096
+  temperature: 0.0
+
+alignment:
+  # Sequences with identity >= this threshold are flagged POTENTIAL_RISK.
+  # Default 70% is intentionally low to catch borderline cases (recall-first).
+  identity_threshold_percent: 70.0
+  # Minimum query coverage to consider an alignment meaningful.
+  coverage_threshold_percent: 50.0
+  # E-value cutoff for BLAST hits.
+  evalue_cutoff: 1.0e-5
+  # When true, run MMseqs2 as cross-validation; disagreements -> NEEDS_HUMAN_REVIEW.
+  use_mmseqs2_cross_validation: false
+
+sequence_extraction:
+  # Minimum amino acid sequence length to keep (filters junk fragments).
+  min_sequence_length: 10
+  # Confidence below which extraction is flagged NEEDS_HUMAN_REVIEW.
+  min_confidence_score: 0.5
+
+web_sequence_finder:
+  # Maximum candidate sequences to return per patent (all go to human review).
+  max_candidates: 20
+  # Databases to search, in priority order.
+  databases:
+    - uniprot
+    - ncbi_protein
+    - genbank
+    - pdb
+    - brenda
+  # Request timeout in seconds.
+  request_timeout: 30
+
+patent_retrieval:
+  # Patent data sources in priority order.
+  sources:
+    - google_patents
+    - epo_ops
+    - uspto
+    - kipris
+  request_timeout: 60
+
+reporting:
+  # Disclaimer appended to every output.
+  disclaimer: >
+    This tool is a review aid only. Final FTO determination must be made by
+    a qualified human reviewer. No patent is automatically excluded from review.
+  # When true, the report header shows "REVIEW INCOMPLETE" until all queue items
+  # have been human-reviewed.
+  enforce_complete_review: true
+
+mock_mode:
+  # When true, agents use sample_data instead of live APIs (for testing/demo).
+  enabled: false
+  sample_data_dir: "tests/sample_data"

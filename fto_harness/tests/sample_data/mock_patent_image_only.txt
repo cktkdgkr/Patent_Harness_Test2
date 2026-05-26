@@ -1,0 +1,23 @@
+NOVEL PROTEASE WITH IMPROVED ACTIVITY
+
+Patent Number: EP3456789B1
+Applicant: Protease Solutions Ltd.
+Publication Date: 2022-03-10
+
+FIELD OF THE INVENTION
+The present invention relates to novel protease enzymes.
+
+DETAILED DESCRIPTION
+The amino acid sequence of the protease is shown in Figure 1.
+SEQ ID NO:1 is depicted in the drawings section (see FIG. 2).
+
+The sequence alignment between the wild-type and mutant is illustrated
+in Figure 3.
+
+Note: This patent contains sequence information only in image/figure form.
+No text-based sequence listing is provided.
+
+CLAIMS
+1. An isolated protease having the sequence shown in Figure 1.
+2. The protease of claim 1 having at least 80% identity to SEQ ID NO:1
+   as depicted in FIG. 2.
